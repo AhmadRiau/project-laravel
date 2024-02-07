@@ -12,9 +12,10 @@ class Product extends Model
     protected $fillable = [
         'name',
         'price',
+        'stock',
         'description',
         'image',
-        'stock'
+        
 
     ];
     public function orders() {
