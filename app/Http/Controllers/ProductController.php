@@ -33,7 +33,7 @@ class ProductController extends Controller
             'price' => $request->price,
             'description' => $request->description,
             'image' => $path,
-            'stock' => $request->price,
+            'stock' => $request->stock,
         ]);
         return Redirect::route('index_product');
     }
@@ -42,4 +42,37 @@ class ProductController extends Controller
         $products = Product::all();
         return view('index_product', compact('products'));
     }
+
+    public function show_product(Product $product) {    
+        return view('show_product', compact('product'));
+    }
+
+    public function edit_product(Product $product) {    
+        return view('edit_product', compact('product'));
+    }
+
+    public function update_product(Product $product, Request $request) {
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required',
+            'stock' => 'required',
+            'description' => 'required | max:253',
+            'image' => 'required'
+        ]);
+
+        $file = $request->file('image');
+        $path = time() . "_" . $request->name. "." . $file->getClientOriginalExtension();
+
+        Storage::disk('local')->put('public/' . $path, file_get_contents($file));
+
+        $product->update([
+            'name' => $request->name,
+            'price' => $request->price,
+            'description' => $request->description,
+            'image' => $path,
+            'stock' => $request->stock,
+        ]);
+        return Redirect::back();
+    }
+
 }

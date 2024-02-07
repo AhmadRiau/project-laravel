@@ -38,7 +38,7 @@
          <div class="form-group row mb-3">
             <label for="stock" class="col-4 col-form-label">Stok Produk</label> 
             <div class="col-8">
-               <input id="stock" name="stock" placeholder="masukkan stok produk" type="text" class="form-control">
+               <input id="stock" name="stock" placeholder="masukkan stok produk" type="number" class="form-control">
             </div>
          </div>
    
