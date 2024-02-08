@@ -22,9 +22,34 @@
             </div>            
          </div>
          <div class="modal-footer">
-            
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-            <a class="btn btn-primary" href=" {{route('edit_product', $product->id)}} ">Edit</a>
+            <div class="d-flex bd-highlight mb-3">
+               <div class="p-2 bd-highlight">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>            
+               </div>               
+               <div class="p-2 bd-highlight">
+                  <a class="btn btn-primary" href=" {{route('edit_product', $product->id)}} ">Edit</a>
+               </div>
+               
+               <div class="me-auto p-2 bd-highlight">
+                  <form action=" {{route('add_to_cart', $product)}} " method="post">
+                     @csrf
+                     <div class="form-group row mb-3">                    
+                        <div class="col-12">
+                           <div class="input-group">                              
+                              <input name="amount" value="1" min="1" type="number" class="form-control">
+                              <div class="input-group-append">
+                                 <div class="input-group-text">
+                                    <button type="submit" class="btn">Add to cart</button>
+                                 </div>
+                              </div> 
+                           </div>
+                        </div>
+                     </div> 
+
+                  </form>
+
+               </div>
+            </div>
          </div>
       </div>
    </div>

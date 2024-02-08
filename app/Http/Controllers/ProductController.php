@@ -75,4 +75,10 @@ class ProductController extends Controller
         return Redirect::back();
     }
 
+    public function delete_product(Product $product) {
+        Storage::disk('local')->delete('public/' . $product->image);
+        $product->delete();
+        return Redirect::route('index_product');
+
+    }
 }

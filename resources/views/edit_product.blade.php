@@ -79,25 +79,29 @@
                   </div>
                   <div class="p-2 bd-highlight">
                      <button  type="submit" class="btn btn-primary">Edit Produk</button>
-                  </div>
-                  <div class="p-2 bd-highlight">
-                     <a href="" class="btn btn-danger">Hapus</a>
-                  </div>
-                </div>
-
-               {{-- error counter --}}
-               @if (count($errors) > 0)
-                  <hr>
-                  <div class="alert alert-danger">
-                     <ul>
-                        @foreach ($errors->all() as $err)
-                           <li>{{$err}}</li>
-                        @endforeach
-                     </ul>
-                  </div>
-               @endif
+                  </div>                  
             </form>
+                  <div class="p-2 bd-highlight">
+                     <form action="{{ route('delete_product', $product) }}" method="post">
+                        @method('delete')
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Hapus</button>
+                     </form>    
+                  </div>
+               </div>
 
+            {{-- error counter --}}
+            @if (count($errors) > 0)
+               <hr>
+               <div class="alert alert-danger">
+                  <ul>
+                     @foreach ($errors->all() as $err)
+                        <li>{{$err}}</li>
+                     @endforeach
+                  </ul>
+               </div>
+            @endif
+            
          </div>
       </div>
    </div>
