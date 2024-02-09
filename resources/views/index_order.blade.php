@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-   
-   <title>Semua Order</title> 
-</head>
+@extends('layouts.app')
 
-
-<body style="margin: 10px">
-   <div class="card p-3 shadow mb-3 rounded" >
+@section('content')
+<div>
+   <div class="card p-3 shadow m-3 rounded">
       <table class="table table-bordered">
          <thead>
             <tr>
@@ -23,7 +14,7 @@
                <th class="col-2" style="text-align: center">Aksi</th>
             </tr>
          </thead>
-
+   
          <tbody>
             @foreach ($orders as $order)
             <tr>
@@ -57,13 +48,12 @@
                      
                   </form>
                </td>
-
+   
             </tr>
             @endforeach
          </tbody>
-
       </table>
    </div>
    <script src="https://kit.fontawesome.com/3f63669769.js" crossorigin="anonymous"></script>
-</body>
-</html>
+</div>
+@endsection

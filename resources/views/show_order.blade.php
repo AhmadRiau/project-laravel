@@ -1,46 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+@extends('layouts.app')
 
-   <title>Order : {{$order->user->name}} </title>
-   <style>
-      .receipt-container {
-         font-family: 'Arial', sans-serif;
-         max-width: 600px;
-         margin: 0 auto;
-         padding: 20px;
-         border: 1px solid #ddd;
-         border-radius: 4px;
-         background: #fff;
-      }
-      .receipt-header {
-         border-bottom: 2px dashed #ccc;
-         margin-bottom: 20px;
-         padding-bottom: 10px;
-      }
-      .receipt-subheader {
-         font-size: 14px;
-         color: #555;
-      }
-      .receipt-body {
-         margin-bottom: 20px;
-      }
-      .receipt-item {
-         border-bottom: 1px solid #eee;
-         padding: 10px 0;
-      }
-      .receipt-total {
-         font-size: 18px;
-         font-weight: bold;
-         text-align: right;
-      }
-   </style>
-</head>
-<body class="m-3">
+@section('content')
+<style>
+   .receipt-container {
+      font-family: 'Arial', sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: #fff;
+   }
+   .receipt-header {
+      border-bottom: 2px dashed #ccc;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+   }
+   .receipt-subheader {
+      font-size: 14px;
+      color: #555;
+   }
+   .receipt-body {
+      margin-bottom: 20px;
+   }
+   .receipt-item {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+   }
+   .receipt-total {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: right;
+   }
+</style>   
+<div>
    <div style="max-width: 600px; margin: 0 auto;" class="mb-3">
       <a href="{{ route('show_profile')}}" class="btn btn-secondary">Kembali</a>
    </div>
@@ -104,7 +97,6 @@
       </form>      
       @endif
       {{-- form upload payment end --}}
-
    </div>
-</body>
-</html>
+</div>
+@endsection
