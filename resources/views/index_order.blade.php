@@ -30,7 +30,7 @@
                </td>
                <td style="text-align: center">
                   @if ($order->payment_receipt != null)
-                  <a href="{{ url('storage/order/'.$order->payment_receipt) }}">
+                  <a target="_blank" href="{{ url('storage/order/'.$order->payment_receipt) }}">
                      <i class="fa-solid fa-receipt fa-2x"></i>
                   </a>
                   @else

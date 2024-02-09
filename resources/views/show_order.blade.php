@@ -72,7 +72,7 @@
       <div class="row">
          <div class="col-3">
             @if ($order->payment_receipt != null)
-               <a href="{{ url('storage/order/'.$order->payment_receipt) }}" class="input-group-text" style="text-decoration : unset">
+               <a target="_blank" href="{{ url('storage/order/'.$order->payment_receipt) }}" class="input-group-text" style="text-decoration : unset">
                   Lihat Receipt
                </a>
             @endif

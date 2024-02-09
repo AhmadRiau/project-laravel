@@ -57,6 +57,13 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    @if (Auth::user()->is_admin)
+                                        <a class="dropdown-item" href="{{route('create_product')}}">New Product</a>                                
+                                        <a class="dropdown-item" href="{{route('index_order')}}">Order</a>                                        
+                                    @endif
+                                    @if (!Auth::user()->is_admin)
+                                        <a class="dropdown-item" href="{{route('show_cart')}}">Cart</a>
+                                    @endif                                    
                                     <a class="dropdown-item" href="{{route('show_profile')}}">Profile</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();

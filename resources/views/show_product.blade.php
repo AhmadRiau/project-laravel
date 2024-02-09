@@ -26,10 +26,20 @@
                <div class="p-2 bd-highlight">
                   <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>            
                </div>               
-               <div class="p-2 bd-highlight">
-                  <a class="btn btn-primary" href=" {{route('edit_product', $product->id)}} ">Edit</a>
-               </div>
                
+               @if (!Auth::check())
+                  <div class="p-2 bd-highlight" >
+                     <a href="{{ route('login') }}" class="btn btn-danger" >Login untuk memesan</a>            
+                  </div>  
+               @endif
+                              
+               @if (Auth::check() && Auth::user()->is_admin)
+                  <div class="p-2 bd-highlight">
+                     <a class="btn btn-primary" href=" {{route('edit_product', $product->id)}} ">Edit</a>
+                  </div>
+               @endif
+               
+               @if (Auth::check() && !Auth::user()->is_admin)
                <div class="me-auto p-2 bd-highlight">
                   <form action=" {{route('add_to_cart', $product)}} " method="post">
                      @csrf
@@ -49,6 +59,7 @@
                   </form>
 
                </div>
+               @endif
             </div>
          </div>
       </div>

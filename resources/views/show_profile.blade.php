@@ -57,36 +57,34 @@
                <h4>Order Akun</h4>
             </div>
             <div class="card-body">
-               @foreach ( $user->orders as $order)
-                  <table class="table">
-                     <thead>
-                        <tr>
-                           <th>Order ID</th>
-                           <th>Waktu Order</th>
-                           <th>Status</th>                     
-                           <th>Aksi</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        @foreach ($user->orders as $order)
-                        <tr>
-                           <td>{{ $order->id }}</td>
-                           <td>{{ $order->created_at}}</td>
-                           <td>
-                              @if ($order->is_paid == true)
-                                 <span class="badge bg-success">Paid</span>
-                              @else
-                                 <span class="badge bg-warning">Unpaid</span>                  
-                              @endif
-                           </td>
-                           <td>
-                              <a href="{{ route('show_order', $order->id) }}" class="btn btn-primary btn-sm">View</a>
-                           </td>
-                        </tr>
-                        @endforeach
-                     </tbody>
-                  </table>
-               @endforeach                                                    
+               <table class="table">
+                  <thead>
+                     <tr>
+                        <th>Order ID</th>
+                        <th>Waktu Order</th>
+                        <th>Status</th>                     
+                        <th>Aksi</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     @foreach ($user->orders as $order)
+                     <tr>
+                        <td>{{ $order->id }}</td>
+                        <td>{{ $order->created_at}}</td>
+                        <td>
+                           @if ($order->is_paid == true)
+                              <span class="badge bg-success">Paid</span>
+                           @else
+                              <span class="badge bg-warning">Unpaid</span>                  
+                           @endif
+                        </td>
+                        <td>
+                           <a href="{{ route('show_order', $order->id) }}" class="btn btn-primary btn-sm">View</a>
+                        </td>
+                     </tr>
+                     @endforeach
+                  </tbody>
+               </table>                                                                
             </div>
          </div>
       </div>
