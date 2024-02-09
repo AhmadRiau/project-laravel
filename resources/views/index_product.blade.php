@@ -11,7 +11,7 @@
    <div class="row p-4">
       @foreach ($products as $product)
       <div class="col-3 mb-3 d-flex">
-         <div class="card shadow p-3 bg-white rounded">
+         <div class="card shadow p-3 bg-white rounded" style="width: 100%">
             <img src="{{ url('storage/'.$product->image) }}" class="card-img-top" alt="foto produk" style="height: 200px; width: 100%; object-fit: cover;">
             <div class="card-body d-flex flex-column gap-2">
                <button type="button" class="btn btn-outline-primary btn-block" data-bs-toggle="modal" data-bs-target="#productDetail{{ $product->id }}">

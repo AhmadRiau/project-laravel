@@ -12,14 +12,14 @@ class Order extends Model
     protected $fillable = [
         'user_id',
         'is_paid',
-        'paymend_reciept',
+        'payment_receipt',
     ];
 
     public function user() {
         return $this->belongsTo(User::class);
     }
 
-    public function product() {
-        return $this->belongsToMany(Product::class);
+    public function transactions() {
+        return $this->hasMany(Transaction::class);
     }
 }

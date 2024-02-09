@@ -69,7 +69,7 @@
 
                {{-- image input --}}               
                <div class="form-group row mb-3" style="padding: 0px 10px">
-                  <input type="file" name="image" class="form-control">
+                  <input type="file" name="image" class="form-control" required>
                </div> 
 
                {{-- action button --}}            

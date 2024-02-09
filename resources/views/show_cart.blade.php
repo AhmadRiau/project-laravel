@@ -64,18 +64,26 @@
 
     </div>
    
-
     {{-- Amoun total --}}
     <div class="col-4">
       <div class="card shadow p-3 bg-white rounded">
         <div class="card-body">
           <h5 class="card-title">Total Pembayaran</h5>
-          <p class="card-text">Rp. {{ $totalAmount }}</p>
+          <p class="card-text">Rp. {{number_format($totalAmount, 2, ',', '.') }} </p>
+          <form action=" {{route('checkout')}} " method="post">
+            @csrf
+            <button type="submit" class="btn btn-primary">Check Out</button>
+            @if (session('message'))
+              <div class="alert alert-info mt-3">
+                {{ session('message') }}
+              </div>
+            @endif
+          </form>
         </div>
       </div>
       {{-- error counter --}}
       @if (count($errors) > 0)
-      <hr>
+      
       <div class="alert alert-danger">
          <ul>
             @foreach ($errors->all() as $err)
