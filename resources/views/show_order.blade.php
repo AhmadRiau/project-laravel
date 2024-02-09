@@ -9,40 +9,44 @@
    <title>Order : {{$order->user->name}} </title>
    <style>
       .receipt-container {
-          font-family: 'Arial', sans-serif;
-          max-width: 600px;
-          margin: 0 auto;
-          padding: 20px;
-          border: 1px solid #ddd;
-          border-radius: 4px;
-          background: #fff;
+         font-family: 'Arial', sans-serif;
+         max-width: 600px;
+         margin: 0 auto;
+         padding: 20px;
+         border: 1px solid #ddd;
+         border-radius: 4px;
+         background: #fff;
       }
       .receipt-header {
-          border-bottom: 2px dashed #ccc;
-          margin-bottom: 20px;
-          padding-bottom: 10px;
+         border-bottom: 2px dashed #ccc;
+         margin-bottom: 20px;
+         padding-bottom: 10px;
       }
       .receipt-subheader {
-          font-size: 14px;
-          color: #555;
+         font-size: 14px;
+         color: #555;
       }
       .receipt-body {
-          margin-bottom: 20px;
+         margin-bottom: 20px;
       }
       .receipt-item {
-          border-bottom: 1px solid #eee;
-          padding: 10px 0;
+         border-bottom: 1px solid #eee;
+         padding: 10px 0;
       }
       .receipt-total {
-          font-size: 18px;
-          font-weight: bold;
-          text-align: right;
+         font-size: 18px;
+         font-weight: bold;
+         text-align: right;
       }
    </style>
 </head>
-<body>
+<body class="m-3">
+   <div style="max-width: 600px; margin: 0 auto;" class="mb-3">
+      <a href="{{ route('show_profile')}}" class="btn btn-secondary">Kembali</a>
+   </div>
+   
    <?php $totalPrice = 0 ?>   
-   <div class="receipt-container shadow p-3 bg-white rounded">
+   <div class="receipt-container shadow p-3 bg-white rounded">      
       <div class="receipt-header">
          <h3>Order ID : {{$order->id}}</h3>
          <sub class="receipt-subheader">Waktu Order : {{$order->created_at}}</sub>
